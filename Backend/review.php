@@ -32,3 +32,17 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 ]);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo json_encode(['error' => curl_error($ch)]);
+    exit;
+}
+
+curl_close($ch);
+
+
+$responseData = json_decode($response, true);
+$reviewJson = $responseData['choices'][0]['message']['content'] ?? "[]";
