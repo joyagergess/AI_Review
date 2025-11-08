@@ -8,7 +8,7 @@ document.getElementById("review_button").addEventListener('click',async ()=>{
  }
 
  axios.post("http://localhost/AI_Review/Backend/review.php",{
-              Filename: file ,Code :code
+              file: file ,Code :code
               })
                .then(response =>{
                 console.log("Server response:", response.data);
@@ -18,4 +18,3 @@ document.getElementById("review_button").addEventListener('click',async ()=>{
                 });
                });
 
-         
