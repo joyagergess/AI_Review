@@ -46,3 +46,19 @@ curl_close($ch);
 
 $responseData = json_decode($response, true);
 $reviewJson = $responseData['choices'][0]['message']['content'] ?? "[]";
+
+
+preg_match('/\[(.*)\]/s', $reviewJson, $matches);
+if (isset($matches[0])) {
+    $reviewArray = json_decode($matches[0], true);
+} else {
+    $reviewArray = [];
+}
+
+
+if (!is_array($reviewArray)) {
+    $reviewArray = [];
+}
+
+
+echo json_encode($reviewArray, JSON_PRETTY_PRINT);
