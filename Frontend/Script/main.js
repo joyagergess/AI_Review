@@ -6,15 +6,19 @@ document.getElementById("review_button").addEventListener('click',async ()=>{
  if (!file|| !code) {
     return alert("Enter filename and code!");
  }
-
- axios.post("http://localhost/AI_Review/Backend/review.php",{
-              file: file ,Code :code
+try{
+const response= await axios.post("http://localhost/AI_Review/Backend/review.php",{
+              file: file ,code :code
               })
-               .then(response =>{
+          
                 console.log("Server response:", response.data);
-               })
-                .catch(error =>{
-                  console.error("Error",error)
-                });
-               });
-
+                 const data = response.data;
+                 const res = JSON.stringify(data, null, 2);
+                 document.getElementById("output").textContent = res;
+             
+               } catch (error) {
+                 console.error("Error", error);
+  }
+});
+               
+ 
