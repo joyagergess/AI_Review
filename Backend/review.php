@@ -1,4 +1,6 @@
+
 <?php
+use Orhanerday\OpenAi\OpenAi;
 header('Content-Type: application/json');
 
 
@@ -8,10 +10,12 @@ $data = json_decode($input,true);
 $file= $data["file"];
 $code=$data["code"];
 
+
+
 $open_ai = new OpenAi('OPENAI_API_KEY');
 
 $complete = $open_ai->complete([
-    'engine' => 'davinci',
+    'engine' => $data,
     'prompt' => 'Hello',
     'temperature' => 0.9,
     'max_tokens' => 150,
@@ -21,4 +25,3 @@ $complete = $open_ai->complete([
 
 
 $data = json_decode($complete, true);
-echo $data[][][];
