@@ -1,24 +1,23 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+
 header('Content-Type: application/json');
 
+include("callOpenAi.php");
 
-$input = File_get_contents("php://input");
-$data = json_decode($input,true);
+$input = file_get_contents("php://input");
 
-$file= $data["file"];
-$code=$data["code"];
+$data1 = json_decode($input, true);
 
-$open_ai = new OpenAi('OPENAI_API_KEY');
+$file = $data1["file"] ?? null;
+$code = $data1["code"] ?? null;
 
-$complete = $open_ai->complete([
-    'engine' => 'davinci',
-    'prompt' => 'Hello',
-    'temperature' => 0.9,
-    'max_tokens' => 150,
-    'frequency_penalty' => 0,
-    'presence_penalty' => 0.6,
-]);
-
-
-$data = json_decode($complete, true);
-echo $data[][][];
+if (!$file || !$code) {
+    echo json_encode(["error" => "file or code not provided"]);
+    exit;
+}
+$x=callapi($file,$code);
+echo json_encode($x, JSON_PRETTY_PRINT);
