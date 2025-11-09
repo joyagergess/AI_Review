@@ -1,10 +1,10 @@
 
 <?php
  include 'guard.php';
- function callapi($file=[],$code=[]){
-   
-     
 
+ function callapi($file=[],$code=[]){
+   $apiKey="";
+   
    $prompt = "You are a code reviewer. Review the following code from file '{$file}'.
    Check the language of the code from the file extention.
    Return a JSON array of review items. Each item must have:
@@ -14,7 +14,7 @@
    - suggestion: a small suggestion
    
    Code:
-   ```{$code}```
+   {$code}
    
    Only return JSON array, no explanations or extra text.";
    

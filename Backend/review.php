@@ -18,8 +18,9 @@ if (!$file || !$code) {
     echo json_encode(["error" => "file or code not provided"]);
     exit;
 }
-$x=callapi($file,$code);
-echo json_encode($x, JSON_PRETTY_PRINT);
+
+$Ai_review=callapi($file,$code);
+echo json_encode($Ai_review, JSON_PRETTY_PRINT);
 
 
 
