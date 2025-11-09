@@ -2,7 +2,8 @@
 include 'guard.php';
 
 function callapi($file = [], $code = []) {
-    $apiKey = "";
+
+    $apiKey = ""; //We should enter the Api key here
 
     $prompt = Create_Prompt($file, $code);
     $data = Requesting_Data($prompt);
