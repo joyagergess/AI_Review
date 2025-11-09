@@ -10,12 +10,18 @@ $data = json_decode($input,true);
 $file= $data["file"];
 $code=$data["code"];
 
-$prompt = "You are a code reviewer. '{$file}'.
-Return a JSON array of review items Each item must have:
- file, issue, severity: low, medium, or high, suggestion
-Code:{$code}
-Only return JSON array";
+$prompt = "You are a code reviewer. Review the following code from file '{$file}'.
+Check the language of the code from the file extention.
+Return a JSON array of review items. Each item must have:
+- file: the filename
+- issue: a small identifier of the issue 
+- severity: low, medium, or high
+- suggestion: a small suggestion
 
+Code:
+```{$code}```
+
+Only return JSON array, no explanations or extra text.";
 
 $data = [
     'model' => 'gpt-4o-mini',
