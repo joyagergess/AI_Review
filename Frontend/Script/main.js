@@ -11,7 +11,6 @@ const response= await axios.post("http://localhost/AI_Review/Backend/review.php"
           
                 console.log("Server response:", response.data);
                  const data = response.data;
-                 
                  const res = JSON.stringify(data, null, 2);
                  document.getElementById("output").textContent = res;
              
@@ -19,3 +18,5 @@ const response= await axios.post("http://localhost/AI_Review/Backend/review.php"
                  console.error("Error", error);
   }
 });
+               
+ 
