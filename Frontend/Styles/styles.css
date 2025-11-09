@@ -1,10 +1,11 @@
-
-body { 
-  font-family: Arial, sans-serif; 
-  padding: 20px; 
-  max-width: 600px; 
-  margin: auto; 
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  background: #f9f9f9;
 }
+
 
 textarea { 
   width: 100%; 
@@ -21,14 +22,6 @@ input, button {
 pre { 
   background: #f4f4f4; 
   padding: 10px; 
-}
-body {
-  font-family: Arial, sans-serif;
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 0 20px;
-  color: #333;
-  background: #f9f9f9;
 }
 
 h1, h2 {
@@ -60,7 +53,7 @@ button {
 }
 
 button:hover {
-  background: #2980b9;
+  background: #093755;
 }
 
 pre {
